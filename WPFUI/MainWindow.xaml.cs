@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
 using Engine.EventArgs;
 using Engine.Models;
 using Engine.ViewModels;
@@ -62,7 +63,23 @@ namespace WPFUI
 
         private void OnGameMessageRaised(object sender, GameMessageEventArgs e)
         {
-            GameMessages.Document.Blocks.Add(new Paragraph(new Run(e.Message)));
+            Brush foreground = Brushes.White; // Normal default
+
+            if (e.Level == Emote.HAPPY) { foreground = Brushes.ForestGreen; }
+            else if (e.Level == Emote.DANGEROUS) { foreground = Brushes.IndianRed; }
+            else if (e.Level == Emote.FATAL) { foreground = Brushes.Red; }
+            else if (e.Level == Emote.MOCKING) { foreground = Brushes.Gray; }
+            else if (e.Level == Emote.STOIC) { foreground = Brushes.Gray; }
+            else if (e.Level == Emote.FANTASTIC) { foreground = Brushes.Gold; }
+            else if (e.Level == Emote.REQUIRED) { foreground = Brushes.DarkSlateGray; }
+            else if (e.Level == Emote.REWARD) { foreground = Brushes.Goldenrod; }
+
+            var a = new Paragraph(new Run(e.Message)
+            {
+                Foreground = foreground
+            });
+
+            GameMessages.Document.Blocks.Add(a);
             GameMessages.ScrollToEnd();
         }
 

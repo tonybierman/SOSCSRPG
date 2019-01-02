@@ -23,7 +23,7 @@ namespace Engine.Actions
             string actorName = (actor is Player) ? "You" : $"The {actor.Name.ToLower()}";
             string targetName = (target is Player) ? "yourself" : $"the {target.Name.ToLower()}";
 
-            ReportResult($"{actorName} heal {targetName} for {_hitPointsToHeal} point{(_hitPointsToHeal > 1 ? "s" : "")}.");
+            ReportResult(new Emotion(EventArgs.Emote.HAPPY, $"{actorName} heal {targetName} for {_hitPointsToHeal} point{(_hitPointsToHeal > 1 ? "s" : "")}."));
             target.Heal(_hitPointsToHeal);
         }
     }

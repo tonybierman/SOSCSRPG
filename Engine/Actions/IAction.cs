@@ -5,7 +5,7 @@ namespace Engine.Actions
 {
     public interface IAction
     {
-        event EventHandler<string> OnActionPerformed;
+        event EventHandler<Emotion> OnActionPerformed;
         void Execute(LivingEntity actor, LivingEntity target);
     }
 }

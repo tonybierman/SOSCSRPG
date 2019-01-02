@@ -80,7 +80,7 @@
                     BorderThickness="1">
 
                 <RichTextBox x:Name="GameMessages"
-                             Background="Beige"
+                             Background="Black"
                              VerticalScrollBarVisibility="Auto">
                     <RichTextBox.Resources>
                         <Style TargetType="{x:Type Paragraph}">

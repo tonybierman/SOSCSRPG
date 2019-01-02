@@ -1,4 +1,5 @@
 ﻿using System;
+using Engine.EventArgs;
 using Engine.Models;
 
 namespace Engine.Actions
@@ -7,14 +8,14 @@ namespace Engine.Actions
     {
         protected readonly GameItem _itemInUse;
 
-        public event EventHandler<string> OnActionPerformed;
+        public event EventHandler<Emotion> OnActionPerformed;
 
         protected BaseAction(GameItem itemInUse)
         {
             _itemInUse = itemInUse;
         }
 
-        protected void ReportResult(string result)
+        protected void ReportResult(Emotion result)
         {
             OnActionPerformed?.Invoke(this, result);
         }

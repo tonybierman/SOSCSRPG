@@ -39,11 +39,11 @@ namespace Engine.Actions
 
             if(damage == 0)
             {
-                ReportResult($"{actorName} missed {targetName}.");
+                ReportResult(new Emotion(EventArgs.Emote.MOCKING, $"{actorName} missed {targetName}."));
             }
             else
             {
-                ReportResult($"{actorName} hit {targetName} for {damage} point{(damage > 1 ? "s" : "")}.");
+                ReportResult(new Emotion((actor is Player) ? EventArgs.Emote.HAPPY : EventArgs.Emote.DANGEROUS, $"{actorName} hit {targetName} for {damage} point{(damage > 1 ? "s" : "")}."));
 
                 target.TakeDamage(damage);
             }

@@ -125,7 +125,7 @@ namespace Engine.Models
 
         #endregion
 
-        public event EventHandler<string> OnActionPerformed;
+        public event EventHandler<Emotion> OnActionPerformed;
         public event EventHandler OnKilled;
 
         protected LivingEntity(string name, int maximumHitPoints, int currentHitPoints, 
@@ -272,7 +272,7 @@ namespace Engine.Models
             OnKilled?.Invoke(this, new System.EventArgs());
         }
 
-        private void RaiseActionPerformedEvent(object sender, string result)
+        private void RaiseActionPerformedEvent(object sender, Emotion result)
         {
             OnActionPerformed?.Invoke(this, result);
         }
